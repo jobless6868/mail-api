@@ -22,10 +22,10 @@ app.post("/send-email", async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: email,
-      to: process.env.EMAIL_USER,
-      subject: `Liên hệ từ ${name}`,
-      text: message,
+    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+    to: "maihph6811@gmail.com",
+    subject: `📩 Tin nhắn từ ${name}`,
+    text: `Từ: ${name} (${email})\n\n${message}`,
     });
 
     res.status(200).json({ success: true, message: "✅ Gửi email thành công!" });
